@@ -51,7 +51,6 @@ Das Modul **Timer** unterstützt folgendes:
 
 ## 5. Funktionsreferenz
 ---
-
 #### 50. TIMER_Add
 
 
@@ -64,7 +63,7 @@ Fügt der Liste einen neuen, deaktivierten, Timer hinzu
 Funktions Parameter:
 | Name                | Typ    | Beschreibung                                      
 |---------------------|--------|----------------------------------------------------
-| $Timer              | int    | InstanceID des Timer Moduls                       
+| $TimerID            | int    | InstanceID des Timer Moduls                       
 | $Ident              | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 | $Seconds            | int    | Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
 | $Repeats            | int    | Anzahl der Wiederholungen des Timers, Standard ist 1 mal
@@ -95,7 +94,7 @@ Anmerkung:
 Funktions Parameter:
 | Name                | Typ    | Beschreibung                                      
 |---------------------|--------|----------------------------------------------------
-| $Timer              | int    | InstanceID des Timer Moduls                       
+| $TimerID            | int    | InstanceID des Timer Moduls                       
 | $Ident              | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 | $Seconds            | int    | Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
 | $ScriptContent      | string | Entweder reiner Quellkode oder die ObjectID eine vorhandenen IPS Skript
@@ -123,7 +122,7 @@ Anmerkung:
 Funktions Parameter:
 | Name                | Typ    | Beschreibung                                      
 |---------------------|--------|----------------------------------------------------
-| $Timer              | int    | InstanceID des Timer Moduls                       
+| $TimerID            | int    | InstanceID des Timer Moduls                       
 | $Ident              | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 | $Seconds            | int    | Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
 | $VariableID         | int    | ObjectID der zu schaltenden Variable, erlaubt sind Boolean, eger und float
@@ -148,10 +147,10 @@ Anmerkung:
 ```
 
 Funktions Parameter:
-| Name   | Typ    | Beschreibung                                      
-|--------|--------|----------------------------------------------------
-| $Timer | int    | InstanceID des Timer Moduls                       
-| $Ident | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+| Name     | Typ    | Beschreibung                                      
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID des Timer Moduls                       
+| $Ident   | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 
 
 Rückgabewert: **boolean** Wird $Ident gefunden liefert die Funktion true, sonst false.
@@ -170,7 +169,7 @@ Startet einen permanenten oder gestoppten Timer neu
 Funktions Parameter:
 | Name     | Typ    | Beschreibung                                      
 |----------|--------|----------------------------------------------------
-| $Timer   | int    | InstanceID des Timer Moduls                       
+| $TimerID | int    | InstanceID des Timer Moduls                       
 | $Ident   | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 | $Seconds | int    | Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
 
@@ -191,7 +190,7 @@ Stoppt den mit $Ident angegeben Timer
 Funktions Parameter:
 | Name          | Typ    | Beschreibung                                      
 |---------------|--------|----------------------------------------------------
-| $Timer        | int    | InstanceID des Timer Moduls                       
+| $TimerID      | int    | InstanceID des Timer Moduls                       
 | $Ident        | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 | $SendEndEvent | bool   | Wenn true wird vor den Stoppen, unabhängig von der Restlaufzeit, der Timer noch einmal ausgeführt
 
@@ -210,10 +209,10 @@ Stoppt und löscht den mit $Ident angegeben Timer aus der Liste
 ```
 
 Funktions Parameter:
-| Name   | Typ    | Beschreibung                                      
-|--------|--------|----------------------------------------------------
-| $Timer | int    | InstanceID des Timer Moduls                       
-| $Ident | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+| Name     | Typ    | Beschreibung                                      
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID des Timer Moduls                       
+| $Ident   | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 
 
 Rückgabewert: **boolean|string** Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler
@@ -234,7 +233,7 @@ Ein Permanenter Timer wird nach Ablauf der Wiederholungen nicht gelöscht sonder
 Funktions Parameter:
 | Name       | Typ    | Beschreibung                                      
 |------------|--------|----------------------------------------------------
-| $Timer     | int    | InstanceID des Timer Moduls                       
+| $TimerID   | int    | InstanceID des Timer Moduls                       
 | $Ident     | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 | $Permanent | bool   | Der neue Status von Permanent                     
 
@@ -258,7 +257,7 @@ Anmerkung:
 Funktions Parameter:
 | Name     | Typ    | Beschreibung                                      
 |----------|--------|----------------------------------------------------
-| $Timer   | int    | InstanceID des Timer Moduls                       
+| $TimerID | int    | InstanceID des Timer Moduls                       
 | $Ident   | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 | $Repeats | int    | Anzahl der Wiederholungen des Timers, Standard ist 1 mal
 
@@ -277,10 +276,10 @@ Liefert ein Array mit Schlüsseln und Werten des Timers
 ```
 
 Funktions Parameter:
-| Name   | Typ    | Beschreibung                                      
-|--------|--------|----------------------------------------------------
-| $Timer | int    | InstanceID des Timer Moduls                       
-| $Ident | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+| Name     | Typ    | Beschreibung                                      
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID des Timer Moduls                       
+| $Ident   | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 
 
 Rückgabewert: **array** Ein Array mit Schlüsseln und Werten des Timers names $Ident oder ein leeres Array wenn der Timer nicht gefunden wurde
@@ -297,11 +296,11 @@ Setzt ein Array mit Schlüsseln und Werten des Timers
 ```
 
 Funktions Parameter:
-| Name   | Typ    | Beschreibung                                      
-|--------|--------|----------------------------------------------------
-| $Timer | int    | InstanceID des Timer Moduls                       
-| $Ident | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
-| $Timer | array  | Ein Array mit Schlüsseln und Werten des Timers der geändert werden soll
+| Name     | Typ    | Beschreibung                                      
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID des Timer Moduls                       
+| $Ident   | string | Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+| $Timer   | array  | Ein Array mit Schlüsseln und Werten des Timers der geändert werden soll
 
 
 Rückgabewert: **boolean|string** Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler
