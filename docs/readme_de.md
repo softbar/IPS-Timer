@@ -28,7 +28,6 @@ Timer Modul
     - [TIMER_Get](#59-timer_get)
     - [TIMER_Set](#510-timer_set)
 6. [Beispiele](#6-beispiele)
-7. [Anhang](#7-anhang)
 
 ## 1. Einleitung
 
@@ -44,8 +43,6 @@ Zugegeben mit Ereignissen von IPS lässt sich viel mehr machen, dies brauche ich
 ## 4. Installation
 
 ## 5. Funktionsreferenz
-
-
 ### 50. TIMER_Add
 
 
@@ -58,19 +55,19 @@ Fügt der Liste einen neuen, deaktivierten, Timer hinzu
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
-- **$Seconds            ** Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
-- **$Repeats            ** Anzahl der Wiederholungen des Timers, Standard ist 1 mal
-- **$Permanent          ** Legt fest, ob der Timer nach Ablauf beibehalten und deaktiert, oder gelöscht wird. Standard ist das löschen nach der letzten Ausführung.
-- **$VariableID         ** ObjectID der zu schaltenden Variable, erlaubt sind Boolean, eger und float
-- **$ScriptContent      ** Entweder reiner Quellkode oder die ObjectID eine vorhandenen IPS Skript
-- **$VariableEndValue   ** Der Wert der beim auslößen des Timers an die Variable oder das Skript übergeben wird
-- **$VariableStartValue ** Der Wert der beim Start des Timers an die Variable oder das Skript übergeben wird, Standard null , keine Wert
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+2. **$Seconds** Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
+3. **$Repeats** Anzahl der Wiederholungen des Timers, Standard ist 1 mal
+4. **$Permanent** Legt fest, ob der Timer nach Ablauf beibehalten und deaktiert, oder gelöscht wird. Standard ist das löschen nach der letzten Ausführung.
+5. **$VariableID** ObjectID der zu schaltenden Variable, erlaubt sind Boolean, eger und float
+6. **$ScriptContent** Entweder reiner Quellkode oder die ObjectID eine vorhandenen IPS Skript
+7. **$VariableEndValue** Der Wert der beim auslößen des Timers an die Variable oder das Skript übergeben wird
+8. **$VariableStartValue** Der Wert der beim Start des Timers an die Variable oder das Skript übergeben wird, Standard null , keine Wert
 
 Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, andernfalls einen String mit dem Fehler.
 
 Anmerkung:
->- ScriptContent kann den Quellcode ohne **<?php ... ?>** und mit abschließendem **;** enthalten oder auch die **ID** von einem IPS Skript
+>- ScriptContent kann den Quellcode ohne **< ?php ? >** und mit abschließendem **;** enthalten oder auch die **ID** eines IPS Skriptes
 >- Mit Add darf der Timer nicht existieren andernfalls liefert die Funktion eine Fehlermeldung
 
 ---
@@ -87,16 +84,16 @@ Funktion:
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
-- **$Seconds            ** Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
-- **$ScriptContent      ** Entweder reiner Quellkode oder die ObjectID eine vorhandenen IPS Skript
-- **$VariableEndValue   ** Der Wert der beim auslößen des Timers an die Variable oder das Skript übergeben wird
-- **$VariableStartValue ** Der Wert der beim Start des Timers an die Variable oder das Skript übergeben wird, Standard null , keine Wert
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+2. **$Seconds** Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
+3. **$ScriptContent** Entweder reiner Quellkode oder die ObjectID eine vorhandenen IPS Skript
+4. **$VariableEndValue** Der Wert der beim auslößen des Timers an die Variable oder das Skript übergeben wird
+5. **$VariableStartValue** Der Wert der beim Start des Timers an die Variable oder das Skript übergeben wird, Standard null , keine Wert
 
 Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler.
 
 Anmerkung:
->- ScriptContent kann den Quellcode ohne < ?php ? > und mit abschließendem ; enthalten oder auch die ID von eines IPS Skript
+>- ScriptContent kann den Quellcode ohne **< ?php ? >** und mit abschließendem **;** enthalten oder auch die **ID** eines IPS Skriptes
 >- Ist der Timer vorhanden wird er aktualisiert wenn es ein Permanenter Timer ist und der jeweilig angegebene Parameter NICHT leer ( **0**, **''** oder **null** ) ist
 
 ---
@@ -113,11 +110,11 @@ Funktion:
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
-- **$Seconds            ** Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
-- **$VariableID         ** ObjectID der zu schaltenden Variable, erlaubt sind Boolean, eger und float
-- **$VariableEndValue   ** Der Wert der beim auslößen des Timers an die Variable oder das Skript übergeben wird
-- **$VariableStartValue ** Der Wert der beim Start des Timers an die Variable oder das Skript übergeben wird, Standard null , keine Wert
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+2. **$Seconds** Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
+3. **$VariableID** ObjectID der zu schaltenden Variable, erlaubt sind Boolean, eger und float
+4. **$VariableEndValue** Der Wert der beim auslößen des Timers an die Variable oder das Skript übergeben wird
+5. **$VariableStartValue** Der Wert der beim Start des Timers an die Variable oder das Skript übergeben wird, Standard **null** , kein Wert
 
 Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler.
 
@@ -138,7 +135,7 @@ Funktion:
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 
 Liefert als Ergebnis: boolean Wird $Ident gefunden liefert die Funktion true, sonst false.
 
@@ -156,8 +153,8 @@ Startet einen permanenten oder gestoppten Timer neu
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
-- **$Seconds            ** Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+2. **$Seconds** Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
 
 Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler.
 
@@ -175,8 +172,8 @@ Stoppt den mit $Ident angegeben Timer
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
-- **$SendEndEvent       ** Wenn true wird vor den Stoppen, unabhängig von der Restlaufzeit, der Timer noch einmal ausgeführt
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+2. **$SendEndEvent** Wenn true wird vor den Stoppen, unabhängig von der Restlaufzeit, der Timer noch einmal ausgeführt
 
 Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler
 
@@ -194,7 +191,7 @@ Stoppt und löscht den mit $Ident angegeben Timer aus der Liste
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 
 Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler
 
@@ -214,8 +211,8 @@ Ein Permanenter Timer wird nach Ablauf der Wiederholungen nicht gelöscht sonder
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
-- **$Permanent          ** Der neue Status von Permanent
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+2. **$Permanent** Der neue Status von Permanent
 
 Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler
 
@@ -236,8 +233,8 @@ Funktion:
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
-- **$Repeats            ** Anzahl der Wiederholungen des Timers, Standard ist 1 mal
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+2. **$Repeats** Anzahl der Wiederholungen des Timers, Standard ist 1 mal
 
 Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler
 
@@ -255,7 +252,7 @@ Liefert ein Array mit Schlüsseln und Werten des Timers
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
 
 Liefert als Ergebnis: array Ein Array mit Schlüsseln und Werten des Timers names $Ident oder ein leeres Array wenn der Timer nicht gefunden wurde
 
@@ -273,8 +270,8 @@ Setzt ein Array mit Schlüsseln und Werten des Timers
 ```
 
 Parameter:
-- **$Ident              ** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
-- **$Timer              ** Ein Array mit Schlüsseln und Werten des Timers der geändert werden soll
+1. **$Ident** Eindeutige Timer Identifikation, frei wählbar und wird bei allen Aufrufen benötigt!
+2. **$Timer** Ein Array mit Schlüsseln und Werten des Timers der geändert werden soll
 
 Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler
 
@@ -284,4 +281,55 @@ Anmerkung:
 
 ---
 ## 6. Beispiele
-## 7. Anhang
+
+- __Mit Permanenten Timern arbeiten__
+
+mit einem Skript einmalig die Timer setzen
+
+~~~~~~~~~~~~~php
+<?php
+$TimerID = 51049; // ID meines Timer Moduls
+$VariableID = 19272; // ID meiner Bool Variable STATE von einem HM Switch 
+
+TIMER_Add ( $TimerID , $Ident='Mein Timer', $Seconds=60, $Repeats=1,$Permanent=true, $VariableID, $ScriptContent='', $VariableEndValue=false, $VariableStartValue=true);
+TIMER_Add ( $TimerID , 'Mein Script Timer',120, 1,true, 0, 'echo "Hallo ich bins";', null, null);
+
+// nun kann in jedem Scrit oder im IPS Ereignis,als PHP code, der folgende Befehl eingegen werden
+TIMER_Start( $TimerID, 'Mein Timer',0); // Sartet den Timer mit vorgabe 60 Sekunen , schaltet die $VariableID beim start auf $VariableStartValue (true) und beim beenden auf $VariableEndValue (false)
+// oder
+TIMER_Start( $TimerID, 'Mein Timer',120);// Sartet den Timer mit 120 Sekunen , alles andere wie oben
+?>
+~~~~~~~~~~~~~
+
+- __Mit einfachen Timern arbeiten__
+
+In einem beliebigen Script einen einfachen Timer starten
+
+~~~~~~~~~~~~~php
+<?php
+$TimerID = 51049; // ID meines Timer Moduls
+$VariableID = 19272; // ID meiner Bool Variable STATE von einem HM Switch 
+
+TIMER_StartScript	( $TimerID, 'mein flur timer', 300, "echo 'Hallo';" , null,null);
+//oder einen Timer nach 240 sek ausschalten
+TIMER_StartVariable	( $TimerID, 'mein Bad timer', 240, $VariableID , false,true); 
+?>
+~~~~~~~~~~~~~
+
+- __Timer verwalten__
+
+Ein Timer kann vor dem beenden, oder wenn permanent, immer angehalten, gestartet oder gelöscht werden
+
+~~~~~~~~~~~~~php
+<?php
+$TimerID = 51049; // ID meines Timer Moduls
+$VariableID = 19272; // ID meiner Bool Variable STATE von einem HM Switch 
+
+TIMER_Stop( $TimerID, 'mein Bad timer',false); // anhalten
+TIMER_Start($TimerID,  'mein Bad timer',0 );// fortsetzen
+TIMER_Remove( $TimerID, 'mein Bad timer',true); // löschen
+?>
+~~~~~~~~~~~~~
+
+>Alle aktiven oder permanenten Timer können auch in der Modul Konfiguration angehalten,gestartet, gelöscht oder minimal geändert werden.
+
