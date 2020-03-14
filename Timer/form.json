@@ -1,0 +1,80 @@
+{
+	"actions": [
+		{"type":"RowLayout", "items":[
+				{"type":"Select","caption":"Function", "name":"FUNCTION", "options": [
+						{"label":"Select function","value":""},
+						{"label":"Test Timer","value":"TEST"},
+						{"label":"Set Permanent","value":"SET"},
+						{"label":"Unset Permanent","value":"UNSET"},
+						{"label":"Stop Timer","value":"STOP"},
+						{"label":"Start Timer","value":"START"},
+						{"label":"Delete Timer","value":"DELETE"},
+						{"label":"-----------------","value":null},
+						{"label":"Clear all","value":"CLEAR_ALL"}
+						
+					]
+				},
+				{"type":"Button","caption":"Execute","onClick":"if(empty($TimerEvents['ident']))echo 'please select a Timer first';elseif(empty($FUNCTION))echo 'please select a Function first'; else IPS_RequestAction($id,$FUNCTION,$TimerEvents['ident']);"}
+			]
+		},
+		{
+			"type": "List",
+			"caption": "Registred Timers",
+			"name": "TimerEvents",
+			"sort": {
+				"column": "ident",
+				"direction": "ascending"
+			},
+			"columns": [
+				{
+					"name": "ident",
+					"caption": "Identifier",
+					"width": "110px"
+				},
+				{
+					"name": "interval",
+					"caption": "Seconds",
+					"width": "80px"
+				},
+				{
+					"name": "repeats",
+					"caption": "Repeats",
+					"width": "80px"
+				},
+				{
+					"name": "permanent",
+					"caption": "Permanent",
+					"width": "80px"
+				},
+				{
+					"name": "script",
+					"caption": "Script ID or Source",
+					"width": "150px"
+				},
+				{
+					"name": "variableID",
+					"caption": "VariableID",
+					"width": "auto"
+				},
+				{
+					"name": "value",
+					"caption": "Variable Value",
+					"width": "100px"
+				},
+				{
+					"name": "lastRun",
+					"caption": "Last Run",
+					"width": "140px"
+				},
+				{
+					"name": "nextRun",
+					"caption": "Next Run",
+					"width": "140px"
+				}
+			]
+		}
+
+		
+	]
+
+}

@@ -1,0 +1,11 @@
+{
+	"id": "{19650302-C002-0000-DE01-2020IPST0MOD}",
+	"name": "Timer",
+	"type": 3,
+	"vendor": "Xaver Bauer",
+	"aliases":["Timer Modul"],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+	"prefix": "TIMER"
+}

@@ -1,0 +1,53 @@
+{
+    "translations": {
+        "de": {
+            "Event":"Ereignis",
+            "Reload": "Neu Laden",
+            "Clear all": "Alle Löschen",
+            "Function": "Funktion",
+            "Select function": "Wähle eine Funktion",
+            "Test Timer": "Teste Timer",
+            "Set Permanent": "Markiere als dauerhaft",
+            "Unset Permanent": "Setze als nicht dauerhaft",
+            "Stop Timer": "Halte Timer an",
+            "Start Timer": "Starte Timer",
+            "Delete Timer": "Lösche Timer",
+            "Execute": "Ausführen",
+            "Registred Timers": "Vorhandene Timer",
+            "Identifier": "Identifikation",
+            "Seconds": "Sekunden",
+            "Repeats": "Wiederholen",
+            
+            "Permanent": "Dauerhaft",
+            "Script ID or Source": "Skript ID oder Quellkode ",
+            "VariableID": "VariableID",
+            "Variable Value": "Variable Wert",
+            "Last Run": "Letzte Ausführung",
+            "Next Run": "Nächste Ausführung",
+            "Timer '%s' not found!": "Timer '%s' nicht gefunden!",
+            "Timer '%s' already exists!": "Timer '%s' existiert bereits!",
+            "ERROR Empty Timer array in TIMER_Set!": "FEHLER: Leeres Timer array an Funktion TIMER_Set übergeben!",
+            "Empty Identifier!": "Fehlende Identifikation!",
+            "Script content or VariableID missing!": "Skript inhalt or VariableID fehlt!",
+            "Script with ID %s not exist!": "Skript mit ID %s existiert nicht!",
+            "Variable with ID %s not exist!": "Variable mit ID %s existiert nicht",
+            "String Variable ID %s not supported!": "String Variable ID %s wird nicht unterstützt!",
+            "disabled": "deaktiviert",
+            "never": "nie",
+            "yes": "ja",
+            "no": "nein",
+            "running...":"läuft...",
+            "unique":"einmalig",
+            "H:i:s  d.m.Y": "H:i:s  d.m.Y",
+            "No more Events. Timer disabled":"keine weiteren Ereignisse. Timer deaktiviert",
+            "Next Event in %s seconds":"nächstes Ereignis in %s Sekunden",
+            
+            "Test Timer '%s'":"Teste Timer '%s'",
+            "Set '%s' permanent":"Setzen von Timer '%s' auf dauerhaft",
+            "Unset '%s' permanent":"Dauerhaft von Timer '%s' entfernen",
+            "Stop Timer '%s'":"Stoppe Timer '%s'",
+            "Start Timer '%s'":"Starte Timer '%s'",
+            "Delete Timer '%s'":"Lösche Timer '%s'"
+        }
+    }
+}
