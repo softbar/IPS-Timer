@@ -32,6 +32,7 @@
             "Script with ID %s not exist!": "Skript mit ID %s existiert nicht!",
             "Variable with ID %s not exist!": "Variable mit ID %s existiert nicht",
             "String Variable ID %s not supported!": "String Variable ID %s wird nicht unterstützt!",
+            "End value for %s missing! If you use VariableID you must set the End value":"Endwert für% s fehlt! Wenn eine VariableID verwenden wird, muss ein Endwert angegeben werden",
             "disabled": "deaktiviert",
             "never": "nie",
             "yes": "ja",

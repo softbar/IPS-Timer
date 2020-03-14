@@ -95,7 +95,7 @@ class Timer extends IPSModule
 	 * @param mixed $VariableEndValue Der Wert der beim auslößen des Timers an die Variable oder das Skript übergeben wird
 	 * @param mixed $VariableStartValue Der Wert der beim Start des Timers an die Variable oder das Skript übergeben wird, Standard null , keine Wert
 	 * @return boolean|string Bei Erfolg liefert die Funktion true, andernfalls einen String mit dem Fehler.
-	 * @note ScriptContent kann den Quellcode ohne < ?php ? > und mit abschließendem ; enthalten oder auch die ID von eines IPS Skript
+	 * @note ScriptContent kann den Quellcode ohne < ?php ? > und mit abschließendem ; enthalten oder auch die ID eines IPS Skript
 	 * @note Mit Add darf der Timer nicht existieren andernfalls liefert die Funktion eine Fehlermeldung
 	 */
 	public function Add(string $Ident, int $Seconds, int $Repeats, bool $Permanent, int $VariableID, string $ScriptContent, $VariableEndValue, $VariableStartValue) {
@@ -113,9 +113,9 @@ class Timer extends IPSModule
 	 * @param int $Seconds Die Zeitspanne wann der Timer ausgelößt wird. Minimum sind 5 , Standard 120 Sekunden
 	 * @param string $ScriptContent Entweder reiner Quellkode oder die ObjectID eine vorhandenen IPS Skript
 	 * @param mixed $VariableEndValue Der Wert der beim auslößen des Timers an die Variable oder das Skript übergeben wird
-	 * @param mixed $VariableStartValue Der Wert der beim Start des Timers an die Variable oder das Skript übergeben wird, Standard null , keine Wert
+	 * @param mixed $VariableStartValue Der Wert der beim Start des Timers an die Variable oder das Skript übergeben wird, Standard **null** , kein Wert
 	 * @return boolean|string Bei Erfolg liefert die Funktion true, sonst einen String mit dem Fehler.
-	 * @note ScriptContent kann den Quellcode ohne < ?php ? > und mit abschließendem ; enthalten oder auch die ID von eines IPS Skript
+	 * @note ScriptContent kann den Quellcode ohne < ?php ? > und mit abschließendem ; enthalten oder auch die ID eines IPS Skript
 	 * @note Ist der Timer vorhanden wird er aktualisiert wenn es ein Permanenter Timer ist und der jeweilig angegebene Parameter NICHT leer ( **0**, **''** oder **null** ) ist
 	 */
 	public function StartScript(string $Ident, int $Seconds, string $ScriptContent, $VariableEndValue, $VariableStartValue) {
@@ -359,8 +359,10 @@ class Timer extends IPSModule
 		}
 		if ($Event->variableID) {
 			if (! IPS_VariableExists ( $Event->variableID )) {return sprintf ( $this->Translate ( "Variable with ID %s not exist!" ), $Event->variableID );}
+			if(is_null($Event->endValue))return $this->Translate("End value for %s missing! If you use a VariableID you must set the End value");
 			if (IPS_GetVariable ( $Event->variableID ) ['VariableType'] > 2) {return sprintf ( $this->Translate ( "String Variable ID %s not supported!" ), $Event->variableID );}
 		}
+		
 		return true;
 	}
 	private function TestEvent($Ident) {
