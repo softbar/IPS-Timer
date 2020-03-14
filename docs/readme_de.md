@@ -1,6 +1,5 @@
 <a href="https://www.symcon.de"><img src="https://img.shields.io/badge/IP--Symcon-5.1-blue.svg?style=flat-square"/></a>
-<a href="https://styleci.io/repos/116687340/"><img src="https://styleci.io/repos/116687340/shield" alt="StyleCI"></a>
-<a href="https://travis-ci.org/symcon/Alexa"><img src="https://img.shields.io/travis/symcon/Alexa/master.svg?style=flat-square" alt="Build status"></a>
+<a href="https://www.php.net"><img src="https://img.shields.io/badge/PHP-7.0-blue.svg?style=flat-square"/></a>
 
 # Modul Timer v1.0
 
