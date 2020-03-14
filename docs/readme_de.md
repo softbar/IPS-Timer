@@ -1,5 +1,6 @@
-<a href="https://www.symcon.de"><img src="https://img.shields.io/badge/IP--Symcon-5.2-blue.svg?style=flat-square"/></a>
-<a href="https://www.php.net"><img src="https://img.shields.io/badge/PHP-7.0-blue.svg?style=flat-square"/></a>
+[![Version](https://img.shields.io/badge/IP--Symcon-PHPModul-red.svg)](#-einleitung)
+[![Version](https://img.shields.io/badge/IP--Symcon-5.2-blue.svg?style=flat-square)](#-einleitung)
+[![Code](https://img.shields.io/badge/PHP-7.0-blue.svg?style=flat-square)](#-einleitung)
 
 # Modul Timer v1.0
 
