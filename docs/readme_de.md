@@ -1,4 +1,4 @@
-<a href="https://www.symcon.de"><img src="https://img.shields.io/badge/IP--Symcon-5.1-blue.svg?style=flat-square"/></a>
+<a href="https://www.symcon.de"><img src="https://img.shields.io/badge/IP--Symcon-5.2-blue.svg?style=flat-square"/></a>
 <a href="https://www.php.net"><img src="https://img.shields.io/badge/PHP-7.0-blue.svg?style=flat-square"/></a>
 
 # Modul Timer v1.0
@@ -36,14 +36,20 @@ Nun, jetzt habe ich mir dafür das "Timer" Modul gebaut.
 Zugegeben mit Ereignissen von IPS lässt sich viel mehr machen, dies brauche ich jedoch nicht überall und arbeite, zugegeben, lieber mit Skripten da dies für mich einfach übersichtlicher ist.
 
 ## 2. Funktionsumfang
+
+Das Modul **Timer** unterstützt folgendes:
+- einen Timer erstellen
+- einen Timer stoppen
+- einen Timer starten
+- einen Timer löschen
+
 ## 3. Voraussetzungen
  - IP-Synmcon 5.2
  
 ## 4. Installation
 
 ## 5. Funktionsreferenz
-### 50. TIMER_Add
-
+#### 50. TIMER_Add
 
 Funktion:
 
@@ -71,7 +77,7 @@ Anmerkung:
 
 ---
 
-### 51. TIMER_StartScript
+#### 51. TIMER_StartScript
 
 
 Funktion:
@@ -97,7 +103,7 @@ Anmerkung:
 
 ---
 
-### 52. TIMER_StartVariable
+#### 52. TIMER_StartVariable
 
 
 Funktion:
@@ -122,7 +128,7 @@ Anmerkung:
 
 ---
 
-### 53. TIMER_Exists
+#### 53. TIMER_Exists
 
 
 Funktion:
@@ -140,7 +146,7 @@ Liefert als Ergebnis: boolean Wird $Ident gefunden liefert die Funktion true, so
 
 ---
 
-### 54. TIMER_Start
+#### 54. TIMER_Start
 
 
 Funktion:
@@ -159,7 +165,7 @@ Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst
 
 ---
 
-### 55. TIMER_Stop
+#### 55. TIMER_Stop
 
 
 Funktion:
@@ -178,7 +184,7 @@ Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst
 
 ---
 
-### 56. TIMER_Remove
+#### 56. TIMER_Remove
 
 
 Funktion:
@@ -196,7 +202,7 @@ Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst
 
 ---
 
-### 57. TIMER_SetPermanent
+#### 57. TIMER_SetPermanent
 
 
 Funktion:
@@ -220,7 +226,7 @@ Anmerkung:
 
 ---
 
-### 58. TIMER_SetRepeats
+#### 58. TIMER_SetRepeats
 
 
 Funktion:
@@ -239,7 +245,7 @@ Liefert als Ergebnis: boolean|string Bei Erfolg liefert die Funktion true, sonst
 
 ---
 
-### 59. TIMER_Get
+#### 59. TIMER_Get
 
 
 Funktion:
@@ -257,7 +263,7 @@ Liefert als Ergebnis: array Ein Array mit Schlüsseln und Werten des Timers name
 
 ---
 
-### 510. TIMER_Set
+#### 510. TIMER_Set
 
 
 Funktion:
