@@ -25,9 +25,9 @@ Creates and manages simple timers from a script
     - [TIMER_Get](#510-timer_get)
     - [TIMER_Set](#511-timer_set)
 - [Examples](#6-examples)
-    - [Mit Permanenten Timern arbeiten](#a-mit-permanenten-timern-arbeiten)
-    - [Mit einfachen Timern arbeiten](#b-mit-einfachen-timern-arbeiten)
-    - [Timer verwalten](#c-timer-verwalten)
+    - [Work with permanent timers](#a-work-with-permanent-timers)
+    - [Work with simple timers](#b-work-with-simple-timers)
+    - [Manage timers](#c-manage-timers)
 
 ## 1. Introductions
 How many times have I used it, such a simple function like turning it off after xx seconds and I have always tinkered with events.
@@ -67,7 +67,7 @@ Adds a new, deactivated, timer to the list
 TIMER_Add ( $TimerID, $Ident, $Seconds, $Repeats, $Permanent, $VariableID, $ScriptContent, $VariableEndValue, $VariableStartValue)
 ```
 
-parameter
+Parameter
 
 | Name                | Type   | Description                                       
 |---------------------|--------|----------------------------------------------------
@@ -81,7 +81,7 @@ parameter
 | $VariableEndValue   | mixed  | The value that is passed to the variable or script when the timer is triggered
 | $VariableStartValue | mixed  | The value passed to the variable or script when the timer starts, default zero, no value
 
-return
+Returns
 
 | Type                | Description                                       
 |---------------------|----------------------------------------------------
@@ -99,7 +99,7 @@ Changes and starts a permanent script timer or creates a new normal script timer
 TIMER_StartScript ( $TimerID, $Ident, $Seconds, $ScriptContent, $VariableEndValue, $VariableStartValue)
 ```
 
-parameter
+Parameter
 
 | Name                | Type   | Description                                       
 |---------------------|--------|----------------------------------------------------
@@ -110,7 +110,7 @@ parameter
 | $VariableEndValue   | mixed  | The value that is passed to the variable or script when the timer is triggered
 | $VariableStartValue | mixed  | The value passed to the variable or script when the timer starts, default zero, no value
 
-return
+Returns
 
 | Type                | Description                                       
 |---------------------|----------------------------------------------------
@@ -128,7 +128,7 @@ Changes and starts a permanent variable timer or creates a new normal variable t
 TIMER_StartVariable ( $TimerID, $Ident, $Seconds, $VariableID, $VariableEndValue, $VariableStartValue)
 ```
 
-parameter
+Parameter
 
 | Name                | Type   | Description                                       
 |---------------------|--------|----------------------------------------------------
@@ -139,7 +139,7 @@ parameter
 | $VariableEndValue   | mixed  | The value that is passed to the variable or script when the timer is triggered
 | $VariableStartValue | mixed  | The value passed to the variable or script when the timer starts, default zero, no value
 
-return
+Returns
 
 | Type                | Description                                       
 |---------------------|----------------------------------------------------
@@ -156,14 +156,14 @@ Checks whether a timer already exists
 TIMER_Exists ( $TimerID, $Ident)
 ```
 
-parameter
+Parameter
 
 | Name     | Type   | Description                                       
 |----------|--------|----------------------------------------------------
 | $TimerID | int    | InstanceID of the Timer module                    
 | $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
 
-return
+Returns
 
 | Type    | Description                                       
 |---------|----------------------------------------------------
@@ -178,7 +178,7 @@ Restarts a permanent or stopped timer
 TIMER_Start ( $TimerID, $Ident, $Seconds)
 ```
 
-parameter
+Parameter
 
 | Name     | Type   | Description                                       
 |----------|--------|----------------------------------------------------
@@ -186,7 +186,7 @@ parameter
 | $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
 | $Seconds | int    | The period of time when the timer is triggered. The minimum is 5, the default is 120 seconds
 
-return
+Returns
 
 | Type                | Description                                       
 |---------------------|----------------------------------------------------
@@ -201,7 +201,7 @@ Stops the timer specified with $Ident
 TIMER_Stop ( $TimerID, $Ident, $SendEndEvent)
 ```
 
-parameter
+Parameter
 
 | Name          | Type   | Description                                       
 |---------------|--------|----------------------------------------------------
@@ -209,7 +209,7 @@ parameter
 | $Ident        | string | Clear timer identification, freely selectable and is required for all calls!
 | $SendEndEvent | bool   | If true, the timer is executed again before the stops, regardless of the remaining time
 
-return
+Returns
 
 | Type                | Description                                       
 |---------------------|----------------------------------------------------
@@ -224,14 +224,14 @@ Stops and deletes the timer specified with $Ident from the list
 TIMER_Remove ( $TimerID, $Ident)
 ```
 
-parameter
+Parameter
 
 | Name     | Type   | Description                                       
 |----------|--------|----------------------------------------------------
 | $TimerID | int    | InstanceID of the Timer module                    
 | $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
 
-return
+Returns
 
 | Type                | Description                                       
 |---------------------|----------------------------------------------------
@@ -247,7 +247,7 @@ A permanent timer is not deleted after the repetitions have ended, but the repet
 TIMER_SetPermanent ( $TimerID, $Ident, $Permanent)
 ```
 
-parameter
+Parameter
 
 | Name       | Type   | Description                                       
 |------------|--------|----------------------------------------------------
@@ -255,7 +255,7 @@ parameter
 | $Ident     | string | Clear timer identification, freely selectable and is required for all calls!
 | $Permanent | bool   | Permanent's new status                            
 
-return
+Returns
 
 | Type                | Description                                       
 |---------------------|----------------------------------------------------
@@ -272,7 +272,7 @@ Changes the number of repetitions for an active or permanent timer
 TIMER_SetRepeats ( $TimerID, $Ident, $Repeats)
 ```
 
-parameter
+Parameter
 
 | Name     | Type   | Description                                       
 |----------|--------|----------------------------------------------------
@@ -280,7 +280,7 @@ parameter
 | $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
 | $Repeats | int    | Number of repetitions of the timer, standard is 1 time
 
-return
+Returns
 
 | Type                | Description                                       
 |---------------------|----------------------------------------------------
@@ -295,14 +295,14 @@ Returns an array with keys and values ​​of the timer
 TIMER_Get ( $TimerID, $Ident)
 ```
 
-parameter
+Parameter
 
 | Name     | Type   | Description                                       
 |----------|--------|----------------------------------------------------
 | $TimerID | int    | InstanceID of the Timer module                    
 | $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
 
-return
+Returns
 
 | Type  | Description                                       
 |-------|----------------------------------------------------
@@ -317,7 +317,7 @@ Sets an array of keys and values ​​of the timer
 TIMER_Set ( $TimerID, $Ident, $Timer)
 ```
 
-parameter
+Parameter
 
 | Name     | Type   | Description                                       
 |----------|--------|----------------------------------------------------
@@ -325,7 +325,7 @@ parameter
 | $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
 | $Timer   | array  | An array of keys and values ​​of the timer to be changed
 
-return
+Returns
 
 | Type                | Description                                       
 |---------------------|----------------------------------------------------
