@@ -1,285 +1,385 @@
-<a href="https://www.symcon.de"><img src="https://img.shields.io/badge/IP--Symcon-5.1-blue.svg?style=flat-square"/></a>
-<a href="https://styleci.io/repos/116687340/"><img src="https://styleci.io/repos/116687340/shield" alt="StyleCI"></a>
-<a href="https://travis-ci.org/symcon/Alexa"><img src="https://img.shields.io/travis/symcon/Alexa/master.svg?style=flat-square" alt="Build status"></a>
+[![Version](https://img.shields.io/badge/IP--Symcon-Modul-red.svg?style=flat-square)](docs/readme_de.md) [![Version](https://img.shields.io/badge/IP--Symcon-5.2-blue.svg?style=flat-square)](docs/readme_de.md) [![Code](https://img.shields.io/badge/PHP-7.0-blue.svg?style=flat-square)](docs/readme_de.md)
 
-# Module timer v1.0
+# Module Timer v1.0
+- Author **Xaver Bauer**
+- Version **1.0**
+- Date **03/10/2020**
 
-Function:
+Creates and manages simple timers from a script
 
-Timer module
-- Creator: Xavier
-- Version ..: 1.0
+## Table of Contents
+- [Introductions](#1-introductions)
+- [Features](#2-features)
+- [Requirements](#3-requirements)
+- [Installation](#4-installation)
+- [Function reference](#5-function-reference)
+    - [TIMER_Add](#51-timer_add)
+    - [TIMER_StartScript](#52-timer_startscript)
+    - [TIMER_StartVariable](#53-timer_startvariable)
+    - [TIMER_Exists](#54-timer_exists)
+    - [TIMER_Start](#55-timer_start)
+    - [TIMER_Stop](#56-timer_stop)
+    - [TIMER_Remove](#57-timer_remove)
+    - [TIMER_SetPermanent](#58-timer_setpermanent)
+    - [TIMER_SetRepeats](#59-timer_setrepeats)
+    - [TIMER_Get](#510-timer_get)
+    - [TIMER_Set](#511-timer_set)
+- [Examples](#6-examples)
+    - [Mit Permanenten Timern arbeiten](#a-mit-permanenten-timern-arbeiten)
+    - [Mit einfachen Timern arbeiten](#b-mit-einfachen-timern-arbeiten)
+    - [Timer verwalten](#c-timer-verwalten)
 
-**Table of Contents**
-1. [Introduction](#1-introduction)
-2. [Features](#2-features)
-3. [Requirements](#3-requirements)
-4. [Installation](#4-installation)
-5. [Function Reference](#5-function-reference)
-    - [TIMER_Add](#50-timer_add)
-    - [TIMER_StartScript](#51-timer_startscript)
-    - [TIMER_StartVariable](#52-timer_startvariable)
-    - [TIMER_Exists](#53-timer_exists)
-    - [TIMER_Start](#54-timer_start)
-    - [TIMER_Stop](#55-timer_stop)
-    - [TIMER_Remove](#56-timer_remove)
-    - [TIMER_SetPermanent](#57-timer_setpermanent)
-    - [TIMER_SetRepeats](#58-timer_setrepeats)
-    - [TIMER_Get](#59-timer_get)
-    - [TIMER_Set](#510-timer_set)
-6. [Examples](#6-examples)
-7. [Appendix](#7-appendix)
-
-## 1. Introduction
-
-How many times have I used it, such a simple function like turning it off after xx seconds
-and I always tinkered with events.
+## 1. Introductions
+How many times have I used it, such a simple function like turning it off after xx seconds and I have always tinkered with events.
 Well, now I have built the "timer" module for it.
-Admittedly, you can do a lot more with events from IPS, but I do not need this everywhere and work, admittedly, I prefer to work with scripts because this is simply clearer for me.
+Admittedly, events from IPS can do a lot more, but I don't need this everywhere and personally prefer to work with scripts because this is simply clearer for me.
 
 ## 2. Features
+The module **Timer** supports the following:
+- create a timer
+- stop a timer
+- start a timer
+- delete a timer
+
+[At the beginning](#table-of-contents)
 
 ## 3. Requirements
- - IP-Synmcon 5.2
- 
+- IP-Symcon v5.2
+
+[At the beginning](#table-of-contents)
+
 ## 4. Installation
+Installation via the Module Control from IP-Symcon with the following URL
+
+```
+https://github.com/softbar/IPS-Timer
+```
+
+[At the beginning](#table-of-contents)
+
 ## 5. Function reference
+[At the beginning](#table-of-contents)
 
-### 50. TIMER_Add
-
-
-Function:
-
+#### 51. TIMER_Add
 Adds a new, deactivated, timer to the list
 
 ```php
-  TIMER_Add (int $TimerID, string $Ident, int $Seconds, int $Repeats, bool $Permanent, int $VariableID, string $ScriptContent, $VariableEndValue, $VariableStartValue)
+TIMER_Add ( $TimerID, $Ident, $Seconds, $Repeats, $Permanent, $VariableID, $ScriptContent, $VariableEndValue, $VariableStartValue)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
-- ** $Seconds ** The period of time when the timer is triggered. The minimum is 5, the default is 120 seconds
-- ** $Repeats ** Number of repetitions of the timer, standard is 1 time
-- ** $Permanent ** Defines whether the timer is retained and deactivated after the expiration, or whether it is deleted. The default is the delete after the last execution.
-- ** $VariableID ** ObjectID of the variable to be switched, Boolean, eger and float are allowed
-- ** $ScriptContent ** Either pure source code or the ObjectID of an existing IPS script
-- ** $VariableEndValue ** The value that is passed to the variable or script when the timer is triggered
-- ** $VariableStartValue ** The value that is passed to the variable or script when the timer starts, standard zero, no value
+parameter
 
-Returns: boolean | string If successful, the function returns true, otherwise a string with the error.
+| Name                | Type   | Description                                       
+|---------------------|--------|----------------------------------------------------
+| $TimerID            | int    | InstanceID of the Timer module                    
+| $Ident              | string | Clear timer identification, freely selectable and is required for all calls!
+| $Seconds            | int    | The period of time when the timer is triggered. The minimum is 5, the default is 120 seconds
+| $Repeats            | int    | Number of repetitions of the timer, standard is 1 time
+| $Permanent          | bool   | Defines whether the timer is retained and deactivated after the expiry or is deleted. The default is the delete after the last execution.
+| $VariableID         | int    | ObjectID of the variable to be switched, "bool", "int" and "float" are permitted
+| $ScriptContent      | string | Either pure source code or the ObjectID an existing IPS script
+| $VariableEndValue   | mixed  | The value that is passed to the variable or script when the timer is triggered
+| $VariableStartValue | mixed  | The value passed to the variable or script when the timer starts, default zero, no value
 
-Annotation:
-> - ScriptContent can source code without <? Php? > and with a final; contain or also the ID of an IPS script
-> - The timer must not exist with Add, otherwise the function returns an error message
+return
 
----
+| Type                | Description                                       
+|---------------------|----------------------------------------------------
+| boolean oder string | If successful, the function returns true, otherwise a string with the error.
 
-### 51. TIMER_StartScript
+>ScriptContent can source code without <? Php? > and with a final; contain or also the ID of an IPS script
+>The timer must not exist with Add, otherwise the function returns an error message
 
+[At the beginning](#table-of-contents)
 
-Function:
-
+#### 52. TIMER_StartScript
 Changes and starts a permanent script timer or creates a new normal script timer and starts it once
 
 ```php
-  TIMER_StartScript (int $TimerID, string $Ident, int $Seconds, string $ScriptContent, $VariableEndValue, $VariableStartValue)
+TIMER_StartScript ( $TimerID, $Ident, $Seconds, $ScriptContent, $VariableEndValue, $VariableStartValue)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
-- ** $Seconds ** The period of time when the timer is triggered. The minimum is 5, the default is 120 seconds
-- ** $ScriptContent ** Either pure source code or the ObjectID of an existing IPS script
-- ** $VariableEndValue ** The value that is passed to the variable or script when the timer is triggered
-- ** $VariableStartValue ** The value that is passed to the variable or script when the timer starts, standard zero, no value
+parameter
 
-Returns: boolean | string If successful, the function returns true, otherwise a string with the error.
+| Name                | Type   | Description                                       
+|---------------------|--------|----------------------------------------------------
+| $TimerID            | int    | InstanceID of the Timer module                    
+| $Ident              | string | Clear timer identification, freely selectable and is required for all calls!
+| $Seconds            | int    | The period of time when the timer is triggered. The minimum is 5, the default is 120 seconds
+| $ScriptContent      | string | Either pure source code or the ObjectID an existing IPS script
+| $VariableEndValue   | mixed  | The value that is passed to the variable or script when the timer is triggered
+| $VariableStartValue | mixed  | The value passed to the variable or script when the timer starts, default zero, no value
 
-Annotation:
-> - ScriptContent can source code without **<?php ?>** and with a final **;** sign or also the ID of an IPS script
-> - If the timer is available, it will be updated if it is a permanent timer and the parameter specified is NOT empty (** 0 **, ** '' ** or ** null **)
+return
 
----
+| Type                | Description                                       
+|---------------------|----------------------------------------------------
+| boolean oder string | If successful, the function returns true, otherwise a string with the error.
 
-### 52. TIMER_StartVariable
+>ScriptContent can source code without <? Php? > and with a final; contain or also the ID of an IPS script
+>If the timer is available, it will be updated if it is a permanent timer and the parameter specified is NOT empty (0, '' or zero)
 
+[At the beginning](#table-of-contents)
 
-Function:
-
+#### 53. TIMER_StartVariable
 Changes and starts a permanent variable timer or creates a new normal variable timer and starts it once
 
 ```php
-  TIMER_StartVariable (int $TimerID, string $Ident, int $Seconds, int $VariableID, $VariableEndValue, $VariableStartValue)
+TIMER_StartVariable ( $TimerID, $Ident, $Seconds, $VariableID, $VariableEndValue, $VariableStartValue)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
-- ** $Seconds ** The period of time when the timer is triggered. The minimum is 5, the default is 120 seconds
-- ** $VariableID ** ObjectID of the variable to be switched, Boolean, eger and float are allowed
-- ** $VariableEndValue ** The value that is passed to the variable or script when the timer is triggered
-- ** $VariableStartValue ** The value of the variable o at the start of the timer
+parameter
 
-Returns: boolean | string If successful, the function returns true, otherwise a string with the error.
+| Name                | Type   | Description                                       
+|---------------------|--------|----------------------------------------------------
+| $TimerID            | int    | InstanceID of the Timer module                    
+| $Ident              | string | Clear timer identification, freely selectable and is required for all calls!
+| $Seconds            | int    | The period of time when the timer is triggered. The minimum is 5, the default is 120 seconds
+| $VariableID         | int    | ObjectID of the variable to be switched, "bool", "int" and "float" are permitted
+| $VariableEndValue   | mixed  | The value that is passed to the variable or script when the timer is triggered
+| $VariableStartValue | mixed  | The value passed to the variable or script when the timer starts, default zero, no value
 
-Annotation:
-> - If the timer is available, it will be updated if it is a permanent timer and the parameter specified is NOT empty (** 0 **, ** '' ** or ** null **)
+return
 
----
+| Type                | Description                                       
+|---------------------|----------------------------------------------------
+| boolean oder string | If successful, the function returns true, otherwise a string with the error.
 
-### 53. TIMER_Exists
+>If the timer is available, it will be updated if it is a permanent timer and the parameter specified is NOT empty (0, '' or zero)
 
+[At the beginning](#table-of-contents)
 
-Function:
-
+#### 54. TIMER_Exists
 Checks whether a timer already exists
 
 ```php
-  TIMER_Exists (int $TimerID, string $Ident)
+TIMER_Exists ( $TimerID, $Ident)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
+parameter
 
-Returns: boolean If $Ident is found, the function returns true, otherwise false.
+| Name     | Type   | Description                                       
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID of the Timer module                    
+| $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
 
----
+return
 
-### 54. TIMER_Start
+| Type    | Description                                       
+|---------|----------------------------------------------------
+| boolean | If $Ident is found, the function returns true, otherwise false.
 
+[At the beginning](#table-of-contents)
 
-Function:
-
+#### 55. TIMER_Start
 Restarts a permanent or stopped timer
 
 ```php
-  TIMER_Start (int $TimerID, string $Ident, int $Seconds)
+TIMER_Start ( $TimerID, $Ident, $Seconds)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
-- ** $Seconds ** The period of time when the timer is triggered. The minimum is 5, the default is 120 seconds
+parameter
 
-Returns: boolean | string If successful, the function returns true, otherwise a string with the error.
+| Name     | Type   | Description                                       
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID of the Timer module                    
+| $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
+| $Seconds | int    | The period of time when the timer is triggered. The minimum is 5, the default is 120 seconds
 
----
+return
 
-### 55. TIMER_Stop
+| Type                | Description                                       
+|---------------------|----------------------------------------------------
+| boolean oder string | If successful, the function returns true, otherwise a string with the error.
 
+[At the beginning](#table-of-contents)
 
-Function:
-
+#### 56. TIMER_Stop
 Stops the timer specified with $Ident
 
 ```php
-  TIMER_Stop (int $TimerID, string $Ident, bool $SendEndEvent)
+TIMER_Stop ( $TimerID, $Ident, $SendEndEvent)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
-- ** $SendEndEvent ** If true, the timer is executed again before the stops, regardless of the remaining time
+parameter
 
-Returns: boolean | string If successful, the function returns true, otherwise a string with the error
+| Name          | Type   | Description                                       
+|---------------|--------|----------------------------------------------------
+| $TimerID      | int    | InstanceID of the Timer module                    
+| $Ident        | string | Clear timer identification, freely selectable and is required for all calls!
+| $SendEndEvent | bool   | If true, the timer is executed again before the stops, regardless of the remaining time
 
----
+return
 
-### 56. TIMER_Remove
+| Type                | Description                                       
+|---------------------|----------------------------------------------------
+| boolean oder string | If successful, the function returns true, otherwise a string with the error
 
+[At the beginning](#table-of-contents)
 
-Function:
-
+#### 57. TIMER_Remove
 Stops and deletes the timer specified with $Ident from the list
 
 ```php
-  TIMER_Remove (int $TimerID, string $Ident)
+TIMER_Remove ( $TimerID, $Ident)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
+parameter
 
-Returns: boolean | string If successful, the function returns true, otherwise a string with the error
+| Name     | Type   | Description                                       
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID of the Timer module                    
+| $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
 
----
-### 57. TIMER_SetPermanent
+return
 
+| Type                | Description                                       
+|---------------------|----------------------------------------------------
+| boolean oder string | If successful, the function returns true, otherwise a string with the error
 
-Function:
+[At the beginning](#table-of-contents)
 
+#### 58. TIMER_SetPermanent
 If a timer is set from permanent to non-permanent and the repetitions are already 0, it is deleted immediately
-
 A permanent timer is not deleted after the repetitions have ended, but the repetitions and the time start again from the beginning. This means that the timer can simply start again from the beginning.
 
 ```php
-  TIMER_SetPermanent (int $TimerID, string $Ident, bool $Permanent)
+TIMER_SetPermanent ( $TimerID, $Ident, $Permanent)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
-- ** $Permanent ** The new status of Permanent
+parameter
 
-Returns: boolean | string If successful, the function returns true, otherwise a string with the error
+| Name       | Type   | Description                                       
+|------------|--------|----------------------------------------------------
+| $TimerID   | int    | InstanceID of the Timer module                    
+| $Ident     | string | Clear timer identification, freely selectable and is required for all calls!
+| $Permanent | bool   | Permanent's new status                            
 
-Annotation:
-> - If a new timer is created, by default it is not permanent and is deleted after the repetitions have ended
+return
 
----
+| Type                | Description                                       
+|---------------------|----------------------------------------------------
+| boolean oder string | If successful, the function returns true, otherwise a string with the error
 
-### 58. TIMER_SetRepeats
+>When a new timer is created, by default it is not permanent and is deleted after the repetitions have ended
 
+[At the beginning](#table-of-contents)
 
-Function:
-
+#### 59. TIMER_SetRepeats
 Changes the number of repetitions for an active or permanent timer
 
 ```php
-  TIMER_SetRepeats (int $TimerID, string $Ident, int $Repeats)
+TIMER_SetRepeats ( $TimerID, $Ident, $Repeats)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
-- ** $Repeats ** Number of repetitions of the timer, standard is 1 time
+parameter
 
-Returns: boolean | string If successful, the function returns true, otherwise a string with the error
+| Name     | Type   | Description                                       
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID of the Timer module                    
+| $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
+| $Repeats | int    | Number of repetitions of the timer, standard is 1 time
 
----
+return
 
-### 59. TIMER_Get
+| Type                | Description                                       
+|---------------------|----------------------------------------------------
+| boolean oder string | If successful, the function returns true, otherwise a string with the error
 
+[At the beginning](#table-of-contents)
 
-Function:
-
+#### 510. TIMER_Get
 Returns an array with keys and values ​​of the timer
 
 ```php
-  TIMER_Get (int $TimerID, string $Ident)
+TIMER_Get ( $TimerID, $Ident)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
+parameter
 
-The result is: array An array with keys and values ​​of the timer named $Ident or an empty array if the timer was not found
+| Name     | Type   | Description                                       
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID of the Timer module                    
+| $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
 
----
+return
 
-### 510. TIMER_Set
+| Type  | Description                                       
+|-------|----------------------------------------------------
+| array | One with keys and values ​​of the timer named $Ident or an empty one if the timer was not found
 
+[At the beginning](#table-of-contents)
 
-Function:
-
+#### 511. TIMER_Set
 Sets an array of keys and values ​​of the timer
 
 ```php
-  TIMER_Set (int $TimerID, string $Ident, array $Timer)
+TIMER_Set ( $TimerID, $Ident, $Timer)
 ```
 
-Parameter:
-- ** $Ident ** Clear timer identification, freely selectable and is required for all calls!
-- ** $Timer ** An array with keys and values ​​of the timer to be changed
+parameter
 
-Returns: boolean | string If successful, the function returns true, otherwise a string with the error
+| Name     | Type   | Description                                       
+|----------|--------|----------------------------------------------------
+| $TimerID | int    | InstanceID of the Timer module                    
+| $Ident   | string | Clear timer identification, freely selectable and is required for all calls!
+| $Timer   | array  | An array of keys and values ​​of the timer to be changed
 
-Annotation:
-> - This is the only way to subsequently change a timer ident.
-> - Keys that cannot be used are removed before setting, invalid keys are ignored
+return
 
----
+| Type                | Description                                       
+|---------------------|----------------------------------------------------
+| boolean oder string | If successful, the function returns true, otherwise a string with the error
+
+>This is the only way to subsequently change a timer ident.
+>Keys that cannot be used are removed before setting, invalid keys are ignored
+
+[At the beginning](#table-of-contents)
+
+
 ## 6. Examples
-## 7. Appendix
+#### a. Work with permanent timers
+set the timers once with a script
+
+```php
+<?php
+$TimerID = 51049; // ID meines Timer Moduls
+$VariableID = 19272; // ID meiner Bool Variable STATE von einem HM Switch 
+
+TIMER_Add ( $TimerID , $Ident='Mein Timer', $Seconds=60, $Repeats=1,$Permanent=true, $VariableID, $ScriptContent='', $VariableEndValue=false, $VariableStartValue=true);
+TIMER_Add ( $TimerID , 'Mein Script Timer',120, 1,true, 0, 'echo 'Hallo ich bins';', null, null);
+
+// nun kann in jedem Scrit oder im IPS Ereignis,als PHP code, der folgende Befehl eingegen werden
+TIMER_Start( $TimerID, 'Mein Timer',0); // Sartet den Timer mit vorgabe 60 Sekunen , schaltet die $VariableID beim start auf $VariableStartValue (true) und beim beenden auf $VariableEndValue (false)
+// oder
+TIMER_Start( $TimerID, 'Mein Timer',120);// Sartet den Timer mit 120 Sekunen , alles andere wie oben
+?>
+```
+#### b. Work with simple timers
+Start a simple timer in any script
+
+```php
+<?php
+$TimerID = 51049; // ID meines Timer Moduls
+$VariableID = 19272; // ID meiner Bool Variable STATE von einem HM Switch 
+
+TIMER_StartScript	( $TimerID, 'mein flur timer', 300, "echo 'Hallo';" , null,null);
+//oder einen Timer nach 240 sek ausschalten
+TIMER_StartVariable	( $TimerID, 'mein Bad timer', 240, $VariableID , false,true); 
+?>
+```
+#### c. Manage timers
+A timer can always be stopped, started or deleted before the time expires or if it is permanent
+
+```php
+<?php
+$TimerID = 51049; // ID meines Timer Moduls
+$VariableID = 19272; // ID meiner Bool Variable STATE von einem HM Switch 
+
+TIMER_Stop( $TimerID, 'mein Bad timer',false); // anhalten
+TIMER_Start($TimerID,  'mein Bad timer',0 );// fortsetzen
+TIMER_Remove( $TimerID, 'mein Bad timer',true); // löschen
+?>
+```
+
+[At the beginning](#table-of-contents)
