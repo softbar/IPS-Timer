@@ -4,10 +4,10 @@
 
 # Modul Timer v1.0
  
-Module für IP-Symcon **Version >= 5.2** zur Timer-Steuerung.
+Modul für IP-Symcon **Version >= 5.2** zur Timer-Steuerung.
 
  - [Deutsche Dokumentation](docs/readme_de.md "Deutsche Dokumentation")
  
-Modules for IP-Symcon **Version >= 5.2** to control a Timer
+Module for IP-Symcon **Version >= 5.2** to control a Timer
 
  - [English Documentation](docs/readme_en.md "English documentation") 
