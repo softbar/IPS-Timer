@@ -31,9 +31,10 @@ Erstellt einfache Timer aus einem Skript und verwaltet diese
 
 ## 1. Einleitung
 Wie oft habe ich es gebraucht, so eine einfache Funktion wie ausschalten nach xx Sekunden und immer habe ich irgendwie mit Ereignissen gebastelt.
-Nun, jetzt habe ich mir dafür das "Timer" Modul gebaut.
-Zugegeben mit Ereignissen von IPS lässt sich viel mehr machen, dies brauche ich jedoch nicht überall und arbeite, zugegeben, lieber mit Skripten da dies für mich einfach übersichtlicher ist.
 
+Nun, jetzt habe ich mir dafür das "Timer" Modul gebaut.
+
+Zugegeben mit Ereignissen von IPS lässt sich viel mehr machen, dies brauche ich jedoch nicht überall außerdem arbeite ich persönlivh lieber mit Skripten da dies für mich einfach übersichtlicher ist.
 
 ## 2. Funktionsumfang
 Das Modul **Timer** unterstützt folgendes:
